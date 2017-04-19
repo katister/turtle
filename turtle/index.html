@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+     <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- <a-box color="#6173F4" opacity="0.8" depth="2"></a-box> -->
+      <a-sphere radius="2" color="light yellow" position="0 3 -12" rotation="0 0 45"></a-sphere> <!-- you can add texture pngs to change 3d elements -->
+      <a-gradient-sky material="shader: gradient; topColor: 0, 201, 255; bottomColor: 146, 254, 157;"></a-gradient-sky>
+    </a-scene>
+  </body>
+</html>
