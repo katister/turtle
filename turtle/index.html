@@ -13,7 +13,8 @@
   <body>
 
     <a-scene>
- <a-entity cubemap="folder: /images"></a-entity>
+
+      <!-- <a-entity cubemap= id="turtletex; folder: /images"></a-entity> -->
 
       <!-- <a-box color="#6173F4" opacity="0.8" depth="2"></a-box> -->
     <a-light type="ambient" color="#222"></a-light>
@@ -38,34 +39,25 @@
 
       <a-gradient-sky material="shader: gradient; topColor: 146, 254, 157; bottomColor: 0, 201, 255;"></a-gradient-sky>
 
-
         <a-assets>
           <a-mixin id="cube" geometry="primitive: box; width: 50; height: 10; depth: 10;"></a-mixin>
           <a-mixin id="black" material="color: black"></a-mixin>
-          <a-mixin id="texture" material= "shader: flat; envMap: #turtletex; roughness: 0"></a-mixin>
+          <a-mixin id="texture" material= "src: https://ucarecdn.com/14d74691-35ef-479b-aa8d-6de04f75bb1d/; roughness: 0"></a-mixin>
 
-    <a-cubemap id="turtletex">
-      <img src=right.png>
-      <img src=left.png>
-      <img src=top.png>
-      <img src=bottom.png>
-      <img src=front.png>
-      <img src=back.png>
-    </a-cubemap>
   </a-assets>
-      </a-assets>
+
 
         <a-entity position="0 1 0">
           <a-entity mixin="cube black">
             <a-entity position="5 0 0"></a-entity>
   <a-animation attribute="rotation"
-               dur="10000"
+               dur="3000"
                fill="forwards"
                to="0 360 0"
                repeat="indefinite"></a-animation>
         </a-entity>
 
-        <a-entity position="-10 1 0">
+        <a-entity position="-10 2 0">
           <a-entity mixin="cube texture">
             <a-entity position="5 0 0"></a-entity>
   <a-animation attribute="rotation"
