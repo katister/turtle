@@ -7,13 +7,13 @@
 <link rel="icon" href=images/16.png sizes="16x16">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
      <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
-     <script src="https://d3js.org/d3.v4.min.js"></script>
+     <script src="https://rawgit.com/bryik/aframe-cubemap-component/master/dist/aframe-cubemap-component.min.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
 
     <a-scene>
-
+ <a-entity cubemap="folder: /images"></a-entity>
 
       <!-- <a-box color="#6173F4" opacity="0.8" depth="2"></a-box> -->
     <a-light type="ambient" color="#222"></a-light>
@@ -40,8 +40,19 @@
 
 
         <a-assets>
-          <a-mixin id="cube" geometry="primitive: box; width: 50; height: 10;"></a-mixin>
+          <a-mixin id="cube" geometry="primitive: box; width: 50; height: 10; depth: 10;"></a-mixin>
           <a-mixin id="black" material="color: black"></a-mixin>
+          <a-mixin id="texture" material= "shader: flat; envMap: #turtletex; roughness: 0"></a-mixin>
+
+    <a-cubemap id="turtletex">
+      <img src=right.png>
+      <img src=left.png>
+      <img src=top.png>
+      <img src=bottom.png>
+      <img src=front.png>
+      <img src=back.png>
+    </a-cubemap>
+  </a-assets>
       </a-assets>
 
         <a-entity position="0 1 0">
@@ -50,6 +61,16 @@
   <a-animation attribute="rotation"
                dur="10000"
                fill="forwards"
+               to="0 360 0"
+               repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <a-entity position="-10 1 0">
+          <a-entity mixin="cube texture">
+            <a-entity position="5 0 0"></a-entity>
+  <a-animation attribute="rotation"
+               dur="10000"
+               fill="backwards"
                to="0 360 0"
                repeat="indefinite"></a-animation>
         </a-entity>
