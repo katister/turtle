@@ -7,11 +7,14 @@
 <link rel="icon" href=images/16.png sizes="16x16">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
      <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
 
     <a-scene>
+
+
       <!-- <a-box color="#6173F4" opacity="0.8" depth="2"></a-box> -->
     <a-light type="ambient" color="#222"></a-light>
     <a-light type="ambient" intensity="0.7" color="#ffffff"></a-light>
@@ -28,12 +31,34 @@
       <a-sphere
             radius="2"
             color="white"
-            position="0 3 -12"
+            position="0 3 -8"
             rotation="0 0 45">
-        </a-sphere> <!-- you can add texture pngs to change 3d elements -->
-      <a-gradient-sky material="shader: gradient; topColor: 0, 201, 255; bottomColor: 146, 254, 157;"></a-gradient-sky>
-    </a-scene>
 
+        </a-sphere> <!-- you can add texture pngs to change 3d elements -->
+
+      <a-gradient-sky material="shader: gradient; topColor: 146, 254, 157; bottomColor: 0, 201, 255;"></a-gradient-sky>
+
+
+        <a-assets>
+          <a-mixin id="cube" geometry="primitive: box; width: 50; height: 10;"></a-mixin>
+          <a-mixin id="black" material="color: black"></a-mixin>
+      </a-assets>
+
+        <a-entity position="0 1 0">
+          <a-entity mixin="cube black">
+            <a-entity position="5 0 0"></a-entity>
+  <a-animation attribute="rotation"
+               dur="10000"
+               fill="forwards"
+               to="0 360 0"
+               repeat="indefinite"></a-animation>
+        </a-entity>
+
+
+
+
+      <!-- <a-sky color="#ECECEC"></a-sky> -->
+    </a-scene>
 
   </body>
 </html>
