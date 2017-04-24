@@ -2,6 +2,9 @@
 
 <html>
   <head>
+    <title> Empathy Ocean </title>
+    <!-- for FF, Chrome, Opera -->
+<link rel="icon" href=images/16.png sizes="16x16">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
      <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
     <script src="app.js"></script>
@@ -10,14 +13,16 @@
 
     <a-scene>
       <!-- <a-box color="#6173F4" opacity="0.8" depth="2"></a-box> -->
-
-    <a-light type="point" color="yellow" position="-1 1 0"></a-light>
     <a-light type="ambient" color="#222"></a-light>
-
+    <a-light type="ambient" intensity="0.7" color="#ffffff"></a-light>
+     <a-light intensity="0.7" color="#00ffff" position="-5.72 6.65 0.80" animation__color="property:color; dir:alternate; dur:2000; easing:easeInOutSine; loop:true; to:#ff0000" alongpath="path:10,10,-10 -20,10,-10 10,0,-10; closed:true; dur:12000"></a-light>
+     <a-light intensity="0.7" color="#ff0000" position="8.60 6.65 0.80" animation__color="property:color; dir:alternate; dur:2000; easing:easeInOutSine; loop:true; to:#0000ff" alongpath="path:-2,-2,5 2,-1,5 0,-1,5; closed:true; dur:3000;"></a-light>
+     <a-camera position="0 0 0"></a-camera>
       <a-entity
             text="value: hatch and become who you are;"
             color="black"
             align="center"
+            wrapCount= "80.0"
             position=".2 3 -3"
             ></a-entity>
       <a-sphere
@@ -28,5 +33,7 @@
         </a-sphere> <!-- you can add texture pngs to change 3d elements -->
       <a-gradient-sky material="shader: gradient; topColor: 0, 201, 255; bottomColor: 146, 254, 157;"></a-gradient-sky>
     </a-scene>
+
+
   </body>
 </html>
